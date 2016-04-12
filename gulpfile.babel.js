@@ -5,7 +5,7 @@ import babel from 'gulp-babel';
 gulp.task('transform', () => {
     return gulp.src('src/**/*.js')
         .pipe(babel())
-        .pipe(gulp.dest('lib'));
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('watch', () => {
@@ -14,7 +14,7 @@ gulp.task('watch', () => {
             verbose: true
         }))
         .pipe(babel())
-        .pipe(gulp.dest('lib'));
+        .pipe(gulp.dest('dist'));
 });
 
 gulp.task('default', () => {
