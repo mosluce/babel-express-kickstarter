@@ -10,6 +10,7 @@ gulp watch
 ```
 
 ## 檔案路徑
+```
 ├── build                  輸出結果
 │   └── controllers
 ├── public                 靜態檔案
@@ -19,3 +20,4 @@ gulp watch
 ├── src                    ES6 原始碼
 │   └── controllers
 └── views                  共用views
+```
