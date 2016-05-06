@@ -1,0 +1,1 @@
+{"version":3,"sources":["controllers/index.js"],"names":[],"mappings":";;AAAA,IAAM,UAAU,QAAQ,SAAR,CAAhB;AACA,IAAM,SAAS,QAAQ,MAAR,EAAf;;AAIA,OAAO,OAAP,GAAiB,MAAjB","file":"index.js","sourcesContent":["const express = require('express');\nconst router = express.Router();\n\n\n\nmodule.exports = router;\n"],"sourceRoot":"/Users/mosluce/Documents/Workspace/Node/gotyou-api-mongo/src"}

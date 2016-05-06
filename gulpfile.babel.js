@@ -1,22 +1,25 @@
-import gulp from 'gulp';
-import watch from 'gulp-watch';
-import babel from 'gulp-babel';
+const gulp = require('gulp');
+const babel = require('gulp-babel');
+const sourcemaps = require('gulp-sourcemaps');
+const path = require('path');
 
-gulp.task('transform', () => {
-    return gulp.src('src/**/*.js')
-        .pipe(babel())
-        .pipe(gulp.dest('dist'));
-});
+const paths = {
+    es6: ['src/**/*.js'],
+    es5: 'build/',
+    sourceRoot: path.join(__dirname, 'src')
+};
 
-gulp.task('watch', () => {
-    return gulp.src('src/**/*.js')
-        .pipe(watch('src/**/*.js', {
-            verbose: true
+gulp.task('babel', () => {
+    gulp.src(paths.es6)
+        .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['es2015']
         }))
-        .pipe(babel())
-        .pipe(gulp.dest('dist'));
+        .pipe(sourcemaps.write('.', {sourceRoot: paths.sourceRoot}))
+        .pipe(gulp.dest(paths.es5));
 });
 
-gulp.task('default', () => {
-    gulp.start('transform');
+gulp.task('default', ['babel']);
+gulp.task('watch', ['default'], () => {
+    gulp.watch(paths.es6, ['babel']);
 });
